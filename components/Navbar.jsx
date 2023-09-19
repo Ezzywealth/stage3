@@ -34,35 +34,25 @@ const Navbar = () => {
 	return (
 		<nav className={`px-4 md:px-8 py-4 z-[999999999] bg-zinc-900 shadow-md transition-all duration-300 ease-in-out fixed top-0 left-0 w-full ${height >= 150 ? 'bg-white' : 'bg-none'}`}>
 			<section className='relative'>
-				<div className='container mx-auto flex justify-between items-center'>
-					<div className='text-white text-2xl font-bold'>
+				<div className=' flex justify-between items-center'>
+					<div className='text-white font-bold'>
 						<Link href='/'>
 							<div className='md:p-2 text-xl flex items-center gap-3 font-bold'>
 								<Image src='/assets/images/logo.svg' alt='image' layout='intrisic' height={25} width={25} />
-								<h1 className={`${height >= 150 ? 'text-[#333]' : 'text-white'} text-[20px] font-bold`}>Zik Gallery</h1>
+								<h1 className={`text-white text-sm md:text-[20px] font-bold`}>Ziks Gallery</h1>
 							</div>
 						</Link>
 					</div>
-					<div className='md:flex space-x-4 hidden  rounded-lg'>
-						<div className='relative  rounded-lg'>
-							<Form />
-						</div>
-					</div>
-
-					<div className={`${height >= 150 ? 'text-[#333]' : 'text-white'}`}>
-						<Link href='/signin' className='font-semibold hidden md:flex'>
-							Sign out
-						</Link>
-						<button onClick={handleMenu} type='button' className='flex md:hidden bg-[#BE123C] p-1 text-white rounded-full'>
-							{openForm ? <AiOutlineClose size={20} /> : <AiOutlineMenuUnfold size={20} />}
-						</button>
-					</div>
-				</div>
-				{openForm && (
-					<section className='absolute left-0 transition-all duration-300 ease-linear mt-8 w-[350px] flex justify-center '>
+					<div className='hidden md:flex rounded-lg'>
 						<Form />
-					</section>
-				)}
+					</div>
+					<Link href='/signin' className='font-semibold text-white'>
+						Sign out
+					</Link>
+				</div>
+				<div className='flex md:hidden rounded-lg w-full'>
+					<Form />
+				</div>
 			</section>
 		</nav>
 	);
