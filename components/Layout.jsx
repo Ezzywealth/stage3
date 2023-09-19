@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Layout = ({ children }) => {
 	return (
 		<>
-			<Navbar />
-			<main className='w-full mt-[150px] mb-[50px]'>{children}</main>
-			<Footer />
+			<ToastContainer position='top-right' />
+			<main className='w-full'>{children}</main>
 		</>
 	);
 };

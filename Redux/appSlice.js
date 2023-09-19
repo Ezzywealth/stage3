@@ -6,6 +6,7 @@ const initialState = {
 	images: [],
 	imageLoading: false,
 	imageError: '',
+	isSignupModal: false
 };
 
 export const fetchImages = createAsyncThunk('app/fetchImages', async (searchTerm) => {
@@ -18,7 +19,6 @@ export const fetchImages = createAsyncThunk('app/fetchImages', async (searchTerm
 			Authorization: `Client-ID ${accessKey}`,
 		},
 	});
-	console.log(data);
 	return data;
 });
 
@@ -38,7 +38,11 @@ export const searchImages = createAsyncThunk('app/searchImages', async (searchTe
 const appSlice = createSlice({
 	name: 'app',
 	initialState,
-	reducers: {},
+	reducers: {
+		toggleSignupModal:(state,action)=>{
+			state.isSignupModal = !state.isSignupModal
+		}
+	},
 	extraReducers: (builders) => {
 		builders.addCase(fetchImages.pending, (state, action) => {
 			state.imageLoading = true;
@@ -66,3 +70,4 @@ const appSlice = createSlice({
 });
 
 export default appSlice.reducer;
+export const {toggleSignupModal} = appSlice.actions

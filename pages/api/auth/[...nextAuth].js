@@ -1,8 +1,10 @@
 import NextAuth from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
-export const authOptions = {
+const authOptions = {
 	providers: [
 		CredentialsProvider({
+			id: 'credentials',
 			name: 'Credentials',
 			credentials: {
 				email: { label: 'Email', type: 'text', placeholder: 'user@example.com' },
@@ -18,6 +20,9 @@ export const authOptions = {
 			},
 		}),
 	],
+	session: {
+		jwt: true, // Enable JSON Web Tokens for session management
+	},
 };
 
 export default NextAuth(authOptions);

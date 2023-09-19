@@ -4,22 +4,14 @@ import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineMenuUnfold, AiOutlineClose } from 'react-icons/ai';
 import Form from './Form';
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
 	const [height, setHeight] = useState(0);
 	const [openForm, setOpenForm] = useState(false);
 	const { imageLoading } = useSelector((state) => state.app);
-
-	// an effect to cal windows scroll height
-	useEffect(() => {
-		const handleScroll = () => {
-			setHeight(window.scrollY);
-		};
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, [height]);
+	const router = useRouter();
 
 	useEffect(() => {
 		if (imageLoading) {
@@ -27,8 +19,11 @@ const Navbar = () => {
 		}
 	}, [imageLoading]);
 
-	const handleMenu = () => {
-		setOpenForm(!openForm);
+	const handleSignout = async () => {
+		const res = await signOut({
+			redirect: false,
+		});
+		router.push('/');
 	};
 
 	return (
@@ -46,9 +41,9 @@ const Navbar = () => {
 					<div className='hidden md:flex rounded-lg'>
 						<Form />
 					</div>
-					<Link href='/signin' className='font-semibold text-white'>
+					<button onClick={handleSignout} className='font-semibold text-white'>
 						Sign out
-					</Link>
+					</button>
 				</div>
 				<div className='flex md:hidden rounded-lg w-full'>
 					<Form />

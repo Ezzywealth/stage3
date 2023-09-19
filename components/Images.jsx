@@ -5,9 +5,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import LoaderWrapper from './LoaderWrapper';
 const Images = () => {
-	const { images, imageLoading } = useSelector((state) => state.app);
-	console.log(images);
-	console.log(imageLoading);
+	const { images, imageLoading, imageError } = useSelector((state) => state.app);
 
 	return (
 		<main className='w-full flex flex-col items-center'>
