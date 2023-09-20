@@ -17,11 +17,13 @@ const SplashScreen = () => {
 	return (
 		<main className='flex flex-col items-center gap-4 h-screen bg-blend-color' style={{ background: 'url(/assets/images/cars-bg.jpg)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundColor: 'rgba(0,0,0,0.6)' }}>
 			<div className='flex flex-col items-center h-screen justify-center  z-0'>
-				<div className='text-white text-center'>
-					<h1 className='text-6xl font-bold mb-4'>
+				<div className='text-white text-center px-4'>
+					<h1 className='text-3xl md:text-5xl lg:text-6xl font-bold mb-4'>
 						Welcome to Ziks <br /> Gallery
 					</h1>
-					<p className='text-lg'>Explore beautiful images from around the world.</p>
+					<p className='text-base md:text-lg'>
+						Explore beautiful images from <br className='flex md:hidden' /> around the world.
+					</p>
 				</div>
 				<SignInBtn onClick={handleSignIn} />
 			</div>

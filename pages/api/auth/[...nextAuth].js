@@ -23,6 +23,17 @@ const authOptions = {
 	session: {
 		jwt: true, // Enable JSON Web Tokens for session management
 	},
+	unauthorizedRedirect: '/',
+	callbacks: {
+		async redirect({ url, baseUrl }) {
+			// Allows relative callback URLs
+			if (url === '/') return baseUrl;
+			else if (url.startsWith('/')) return `${baseUrl}${url}`;
+			// Allows callback URLs on the same origin
+			else if (new URL(url).origin === baseUrl) return url;
+			return baseUrl;
+		},
+	},
 };
 
 export default NextAuth(authOptions);

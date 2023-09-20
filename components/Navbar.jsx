@@ -20,10 +20,7 @@ const Navbar = () => {
 	}, [imageLoading]);
 
 	const handleSignout = async () => {
-		const res = await signOut({
-			redirect: false,
-		});
-		router.push('/');
+		await signOut();
 	};
 
 	return (
@@ -41,7 +38,7 @@ const Navbar = () => {
 					<div className='hidden md:flex rounded-lg'>
 						<Form />
 					</div>
-					<button onClick={handleSignout} className='font-semibold text-white'>
+					<button onClick={handleSignout} className='cursor-pointer z-[1000] font-semibold text-white'>
 						Sign out
 					</button>
 				</div>

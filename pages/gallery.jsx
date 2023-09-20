@@ -6,29 +6,27 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import Auth from '../components/Auth';
 
-export default function Home() {
+const Gallery = () => {
 	const dispatch = useDispatch();
-	const { data: session } = useSession();
+	const { data: session, status } = useSession();
 	const router = useRouter();
 
 	const query = 'cats';
 	useEffect(() => {
+		if (status === 'loading' || status === 'unauthenticated') return;
 		dispatch(fetchImages(query));
-	}, [query, dispatch]);
+	}, [query, dispatch, status]);
 
-	useEffect(() => {
-		if (session?.user?.email === undefined) {
-			router.push('/');
-		}
-	}, [session?.user?.email]);
-
-	console.log(session?.user?.email);
 	return (
-		<main className='mt-[100px] md:mt-[150px] '>
-			<Navbar />
-			<Images />
-			<Footer />
-		</main>
+		<Auth>
+			<main className='mt-[150px] md:mt-[150px] '>
+				<Navbar />
+				<Images />
+				<Footer />
+			</main>
+		</Auth>
 	);
-}
+};
+export default Gallery;
