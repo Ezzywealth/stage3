@@ -20,7 +20,10 @@ const Navbar = () => {
 	}, [imageLoading]);
 
 	const handleSignout = async () => {
-		await signOut();
+		await signOut({
+			redirect: false,
+			callbackUrl: '/',
+		});
 	};
 
 	return (

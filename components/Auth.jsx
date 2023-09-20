@@ -12,8 +12,8 @@ function Auth({ children }) {
 		return null;
 	} else {
 		router.replace('/gallery');
-		return children;
 	}
+	return children;
 }
 
 export default Auth;

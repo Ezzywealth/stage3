@@ -26,14 +26,15 @@ const SignIn = () => {
 		setLoading(true);
 		try {
 			const resp = await signIn('credentials', {
+				redirect: false,
 				email: data.email,
 				password: data.password,
 				callbackUrl: '/gallery',
 			});
-			console.log(resp);
-			if (resp.ok) {
+			if (resp?.ok) {
 				setLoading(false);
 				toast.success('Signed in successfully');
+				router.push(resp.url);
 			} else {
 				throw new Error('Invalid credentials');
 			}
@@ -45,8 +46,8 @@ const SignIn = () => {
 
 	return (
 		<section className='bg-black/50 w-full h-screen px-4 flex items-center justify-center'>
-			<section className=' bg-white flex flex-col items-center w-full md:w-[600px] px-3 md:px-6 py-6 md:py-20'>
-				<div className='flex justify-end'>
+			<section className=' bg-white flex flex-col items-center w-full md:w-[600px] px-3 md:px-6 py-6 md:py-12'>
+				<div className='flex justify-end w-full'>
 					<span onClick={closeModal} className='cursor-pointer font-bold'>
 						X
 					</span>
@@ -56,9 +57,7 @@ const SignIn = () => {
 					<div>
 						<label className='block mb-2 text-base font-semibold text-gray-600 dark:text-white'>E-mail</label>
 						<input
-							disabled={loading}
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
+							defaultValue={email}
 							type='email'
 							id='email'
 							{...register('email', {
@@ -77,9 +76,7 @@ const SignIn = () => {
 					<div className=''>
 						<label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>Password</label>
 						<input
-							disabled={loading}
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
+							defaultValue={password}
 							type='password'
 							{...register('password', {
 								required: 'Please enter your password',
