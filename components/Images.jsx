@@ -21,6 +21,7 @@ const Images = () => {
 		const newIndex = items.findIndex((p) => p.id === over.id);
 		setItems((items) => arrayMove(items, oldIndex, newIndex));
 	};
+
 	return (
 		<DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
 			<main className='w-full flex flex-col items-center'>
