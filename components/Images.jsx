@@ -31,13 +31,21 @@ const Images = () => {
 						</SkeletonTheme>
 					</section>
 				) : (
-					<SortableContext items={images} strategy={verticalListSortingStrategy}>
-						<section className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full justify-center px-4 md:px-12 lg:px-20'>
-							{items?.map((image, index) => (
-								<ImageCard key={image.id} image={image} />
-							))}
-						</section>
-					</SortableContext>
+					<>
+						{items?.length === 0 ? (
+							<section>
+								<h1 className='text-2xl font-bold text-center mt-10'>No images found. Search another!!!</h1>
+							</section>
+						) : (
+							<SortableContext items={images} strategy={verticalListSortingStrategy}>
+								<section className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full justify-center px-4 md:px-12 lg:px-20'>
+									{items?.map((image, index) => (
+										<ImageCard key={image.id} image={image} />
+									))}
+								</section>
+							</SortableContext>
+						)}
+					</>
 				)}
 			</main>
 		</DndContext>

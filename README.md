@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div>
-  <h1><b>Zik Movies</b></h1><br/><br/>
+  <h1><b>Zik Images</b></h1><br/><br/>
 </div>
 
 # 📗 Table of Contents
@@ -23,7 +23,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-### Zik Movies <a name="about-project"></a>
+### Zik Images <a name="about-project"></a>
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -40,14 +40,12 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Display 10 Featured movies**
-- **search for movies by title**
+- **Display Images for authenticated users**
+- **search images by authenticated users**
 - **Display search results**
 - **loading indicator**
-- **movie details page**
 - **Error Handling**
-- **Temporary like functionality**
-- **Navigation**
+- **Authentication**
 - **Responsiveness**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -122,10 +120,7 @@ You can deploy this project by:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Complete like functionality integrating TMDB api**
 - [ ] **Registration of new users**
-- [ ] **Improved Navigation**
-- [ ] **Watch Trailer**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

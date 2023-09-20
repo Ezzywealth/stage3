@@ -20,9 +20,9 @@ const Gallery = () => {
 		if (status === 'authenticated') {
 			dispatch(fetchImages(query));
 		}
-	}, [query, dispatch, status]);
+	}, [dispatch, status]);
 
-	if (imageLoading || status === 'loading') {
+	if (status === 'loading') {
 		return (
 			<section className='h-screen flex w-full justify-center items-center'>
 				<RotatingLines height='80' width='80' color='#4fa94d' ariaLabel='bars-loading' wrapperStyle={{}} wrapperClass='' visible={true} />
