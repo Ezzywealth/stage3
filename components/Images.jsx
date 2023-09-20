@@ -16,7 +16,6 @@ const Images = () => {
 	}, [images]);
 
 	const handleDragEnd = (event) => {
-		console.log(event);
 		const { active, over } = event;
 		const oldIndex = items.findIndex((p) => p.id === active.id);
 		const newIndex = items.findIndex((p) => p.id === over.id);

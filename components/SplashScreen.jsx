@@ -5,10 +5,27 @@ import SignIn from './SignIn';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleSignupModal } from '../Redux/appSlice';
 import SignInBtn from './SignInBtn';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const SplashScreen = () => {
 	const isSignupModal = useSelector((state) => state.app.isSignupModal);
+	const { data: session, status } = useSession();
+	const router = useRouter();
 	const dispatch = useDispatch();
+
+	if (status === 'loading') {
+		return (
+			<section className='h-screen flex w-full justify-center items-center'>
+				<RotatingLines height='80' width='80' color='#4fa94d' ariaLabel='bars-loading' wrapperStyle={{}} wrapperClass='' visible={true} />
+			</section>
+		);
+	}
+
+	if (status === 'authenticated') {
+		router.replace('/gallery');
+		return null;
+	}
 
 	const handleSignIn = () => {
 		dispatch(toggleSignupModal());
