@@ -52,7 +52,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Live_Demo](https://zikmovies.vercel.app/)
+[Live_Demo](https://ziks-images.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
