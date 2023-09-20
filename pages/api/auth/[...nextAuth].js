@@ -21,24 +21,20 @@ const authOptions = {
 		}),
 	],
 	session: {
-		jwt: true,
+		strategy: 'jwt',
+	},
+	callbacks: {
+		async jwt({ token, user }) {
+			if (user?._id) token._id = user._id;
+			return token;
+		},
+		async session({ session, token }) {
+			if (token?._id) session.user._id = token._id;
+			return session;
+		},
 	},
 	pages: {
 		signIn: '/',
-	},
-	callbacks: {
-		async signIn({ user, account, profile, email, credentials }) {
-			return true;
-		},
-		async redirect({ url, baseUrl }) {
-			return baseUrl;
-		},
-		async session({ session, token, user }) {
-			return session;
-		},
-		async jwt({ token, user, account, profile, isNewUser }) {
-			return token;
-		},
 	},
 };
 
