@@ -29,7 +29,7 @@ const SignIn = () => {
 				redirect: false,
 				email: data.email,
 				password: data.password,
-				callbackUrl: '/gallery',
+				callbackUrl: `${window.location.origin}/gallery`,
 			});
 			if (resp?.ok) {
 				setLoading(false);
