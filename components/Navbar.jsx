@@ -22,7 +22,6 @@ const Navbar = () => {
 	const handleSignout = async () => {
 		await signOut({
 			redirect: false,
-			callbackUrl: '/',
 		});
 	};
 
@@ -41,7 +40,7 @@ const Navbar = () => {
 					<div className='hidden md:flex rounded-lg'>
 						<Form />
 					</div>
-					<button onClick={handleSignout} className='cursor-pointer z-[1000] font-semibold text-white'>
+					<button onClick={handleSignout} className='cursor-pointer  font-semibold text-white'>
 						Sign out
 					</button>
 				</div>

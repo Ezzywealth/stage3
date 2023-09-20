@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export const Layout = ({ children }) => {
 	return (
 		<>
-			<ToastContainer theme='colored' position='top-right' />
+			<ToastContainer position='bottom-center' />
 			<main className='w-full'>{children}</main>
 		</>
 	);
