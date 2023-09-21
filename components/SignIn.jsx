@@ -46,9 +46,9 @@ const SignIn = () => {
 
 	return (
 		<section className='bg-black/50 w-full h-screen px-4 flex items-center justify-center'>
-			<section className=' bg-white flex flex-col items-center w-full md:w-[600px] px-3 md:px-6 py-6 md:py-12'>
+			<section className=' bg-white flex flex-col text-[#ddd] items-center w-full md:w-[600px] px-3 md:px-6 py-6 md:py-12'>
 				<div className='flex justify-end w-full'>
-					<span onClick={closeModal} className='cursor-pointer font-bold'>
+					<span onClick={closeModal} className='cursor-pointer text-red-500 font-bold'>
 						X
 					</span>
 				</div>
