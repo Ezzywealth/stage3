@@ -25,6 +25,8 @@
 
 ### Zik Images <a name="about-project"></a>
 
+This project leverages React's drag-and-drop capabilities to create an interactive image gallery. It showcases a collection of images accompanied by tags and offers powerful filtering options based on these tags. Users can seamlessly rearrange the images and filter them based on their associated tags, enhancing the overall user experience.
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -36,6 +38,7 @@
   <li><a href="https://tailwindcss.com">TailwindCSS</a></li>
   <li><a href="https://redux-toolkit.js.org/">ReduxToolkit</a></li>
   <li><a href="https://axios-http.com/docs/intro">Axios</a></li>
+  <li><a href="https://docs.dndkit.com">React DND</a></li>
 </ul>
 
 ### Key Features <a name="key-features"></a>
@@ -47,6 +50,7 @@
 - **Error Handling**
 - **Authentication**
 - **Responsiveness**
+- **Filter Images by tags**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -79,14 +83,14 @@ To clone this repository to your desired folder, follow the steps below:
 
 ```sh
   cd my-folder
-  git clone https://github.com/Ezzywealth/stage2.git
+  git clone https://github.com/Ezzywealth/stage3.git
 ```
 
 **Using GitHub Desktop app**
 
 - Follow the steps below
 
-  - Visit this link [click me](https://github.com/Ezzywealth/stage2)
+  - Visit this link [click me](https://github.com/Ezzywealth/stage3)
   - Click the green button labelled "code"
   - Select the "Open with GitHub Desktop" option
   - After the GitHub Desktop add opens, click the "clone repo" button
