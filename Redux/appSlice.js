@@ -4,6 +4,7 @@ const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY;
 const initialState = {
 	user: null,
 	images: [],
+	filterImages: [],
 	imageLoading: false,
 	imageError: '',
 	isSignupModal: false,
@@ -22,25 +23,20 @@ export const fetchImages = createAsyncThunk('app/fetchImages', async (searchTerm
 	return data;
 });
 
-export const searchImages = createAsyncThunk('app/searchImages', async (searchTerm) => {
-	const { data } = await axios.get('https://api.unsplash.com/search/photos/random', {
-		params: {
-			count: 30,
-		},
-		headers: {
-			Authorization: `Client-ID ${accessKey}`,
-		},
-	});
-
-	return data;
-});
-
 const appSlice = createSlice({
 	name: 'app',
 	initialState,
 	reducers: {
 		toggleSignupModal: (state, action) => {
 			state.isSignupModal = !state.isSignupModal;
+		},
+		filterImages: (state, action) => {
+			console.log(action.payload);
+			state.images = state.filterImages?.filter((image) => {
+				const tags = image?.tags?.map((tag) => tag?.title?.toLowerCase());
+				console.log(tags);
+				if (tags.slice(0, 1).join(' ').includes(action.payload.toLowerCase())) return image;
+			});
 		},
 	},
 	extraReducers: (builders) => {
@@ -49,20 +45,10 @@ const appSlice = createSlice({
 		});
 		builders.addCase(fetchImages.fulfilled, (state, action) => {
 			state.images = action.payload.results;
+			state.filterImages = action.payload.results;
 			state.imageLoading = false;
 		});
 		builders.addCase(fetchImages.rejected, (state, action) => {
-			state.imageError = action.payload;
-			state.imageLoading = false;
-		});
-		builders.addCase(searchImages.pending, (state, action) => {
-			state.imageLoading = true;
-		});
-		builders.addCase(searchImages.fulfilled, (state, action) => {
-			state.images = action.payload.results;
-			state.imageLoading = false;
-		});
-		builders.addCase(searchImages.rejected, (state, action) => {
 			state.imageError = action.payload;
 			state.imageLoading = false;
 		});
@@ -70,4 +56,4 @@ const appSlice = createSlice({
 });
 
 export default appSlice.reducer;
-export const { toggleSignupModal } = appSlice.actions;
+export const { toggleSignupModal, filterImages } = appSlice.actions;

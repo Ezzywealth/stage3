@@ -47,7 +47,7 @@ const Images = () => {
 					) : (
 						<DndContext autoScroll={{ acceleration: 1 }} TouchSensor collisionDetection={closestCenter} onDragEnd={handleDragEnd} sensors={sensors}>
 							<SortableContext items={images} strategy={reactSwappingStrategy}>
-								<section className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full justify-center px-4 md:px-12 lg:px-20'>
+								<section className='grid grid-cols-2 touch-pan-y md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full justify-center px-4 md:px-12 lg:px-20'>
 									{items?.map((image, index) => (
 										<ImageCard key={image.id} image={image} />
 									))}
