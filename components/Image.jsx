@@ -11,7 +11,7 @@ const ImageCard = ({ image }) => {
 		transition,
 	};
 	return (
-		<section ref={setNodeRef} style={style} {...attributes} {...listeners} className={`touch-auto ${isDragging ? 'opacity-100' : 'opacity-40'}`}>
+		<section ref={setNodeRef} style={style} {...attributes} {...listeners} className={`touch-auto ${isDragging ? 'opacity-[150]' : 'opacity-100'}`}>
 			<div className='block relative xs:h-[150px] sm:h-[250px] rounded-xl shadow-lg touch-none'>
 				<Image placeholder='empty' blurDataURL={image?.blur_hash || 'LJJ*esOZ?w-;~XsmaJxvT1t6jEbI'} src={image?.urls?.small} layout='fill' objectFit='cover' alt='image' className='rounded-md' />
 				<ul className=''>
