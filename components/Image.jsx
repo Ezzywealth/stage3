@@ -11,9 +11,9 @@ const ImageCard = ({ image }) => {
 		transition,
 	};
 	return (
-		<section ref={setNodeRef} style={style} {...attributes} {...listeners} className={` ${isDragging ? 'opacity-[150]' : 'opacity-100'} shadow-md p-2 cursor-grab touch-manipulation`}>
+		<section ref={setNodeRef} style={style} {...attributes} {...listeners} className={`  shadow-md p-2  cursor-grab touch-manipulation`}>
 			<div className='block relative xs:h-[120px] sm:h-[150px]  md:h-[200px] lg:h-[250px] rounded-xl shadow-lg '>
-				<Image placeholder='empty' blurDataURL={image?.blur_hash || 'LJJ*esOZ?w-;~XsmaJxvT1t6jEbI'} src={image?.urls?.small} layout='fill' objectFit='cover' alt='image' className='rounded-md aspect-square' />
+				<Image placeholder='empty' blurDataURL={image?.blur_hash || 'LJJ*esOZ?w-;~XsmaJxvT1t6jEbI'} src={image?.urls?.small} layout='fill' objectFit='cover' alt='image' className={`${isDragging ? 'opacity-50 bg-[rgba(0,0,0,0.8)]' : 'opacity-100'} rounded-md aspect-square bg-blend-color bg-center`} />
 			</div>
 			<ul className='flex w-full bg-white gap-3 justify-start flex-nowrap'>
 				{image?.tags?.slice(0, 2).map((tag) => (
