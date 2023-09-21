@@ -6,11 +6,11 @@ const initialState = {
 	images: [],
 	imageLoading: false,
 	imageError: '',
-	isSignupModal: false
+	isSignupModal: false,
 };
 
 export const fetchImages = createAsyncThunk('app/fetchImages', async (searchTerm) => {
-	const { data } = await axios.get('https://api.unsplash.com/search/photos', {
+	const { data } = await axios.get('https://api.unsplash.com/photos', {
 		params: {
 			query: searchTerm,
 			per_page: 25,
@@ -19,19 +19,20 @@ export const fetchImages = createAsyncThunk('app/fetchImages', async (searchTerm
 			Authorization: `Client-ID ${accessKey}`,
 		},
 	});
+	console.log(data);
 	return data;
 });
 
 export const searchImages = createAsyncThunk('app/searchImages', async (searchTerm) => {
-	const { data } = await axios.get('https://api.unsplash.com/search/photos', {
+	const { data } = await axios.get('https://api.unsplash.com/search/photos/random', {
 		params: {
-			query: searchTerm,
-			per_page: 25,
+			count: 30,
 		},
 		headers: {
 			Authorization: `Client-ID ${accessKey}`,
 		},
 	});
+
 	return data;
 });
 
@@ -39,16 +40,16 @@ const appSlice = createSlice({
 	name: 'app',
 	initialState,
 	reducers: {
-		toggleSignupModal:(state,action)=>{
-			state.isSignupModal = !state.isSignupModal
-		}
+		toggleSignupModal: (state, action) => {
+			state.isSignupModal = !state.isSignupModal;
+		},
 	},
 	extraReducers: (builders) => {
 		builders.addCase(fetchImages.pending, (state, action) => {
 			state.imageLoading = true;
 		});
 		builders.addCase(fetchImages.fulfilled, (state, action) => {
-			state.images = action.payload.results;
+			state.images = action.payload;
 			state.imageLoading = false;
 		});
 		builders.addCase(fetchImages.rejected, (state, action) => {
@@ -70,4 +71,4 @@ const appSlice = createSlice({
 });
 
 export default appSlice.reducer;
-export const {toggleSignupModal} = appSlice.actions
+export const { toggleSignupModal } = appSlice.actions;

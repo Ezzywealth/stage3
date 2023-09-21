@@ -31,7 +31,6 @@ const SignIn = () => {
 				password: data.password,
 				callbackUrl: `${window.location.origin}/gallery`,
 			});
-
 			if (resp?.ok) {
 				setLoading(false);
 				toast.success('Signed in successfully');
