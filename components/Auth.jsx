@@ -20,7 +20,7 @@ function Auth({ children }) {
 	} else {
 		router.replace('/gallery');
 	}
-	return children;
+	return <main>{children}</main>;
 }
 
 export default Auth;

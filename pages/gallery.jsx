@@ -31,13 +31,13 @@ const Gallery = () => {
 	}
 
 	return (
-		<Auth>
-			<main className='mt-[150px] md:mt-[150px] '>
-				<Navbar />
-				<Images />
-				<Footer />
-			</main>
-		</Auth>
+		// <Auth>
+		<main className='mt-[150px] md:mt-[150px] '>
+			<Navbar />
+			<Images />
+			<Footer />
+		</main>
+		// </Auth>
 	);
 };
 export default Gallery;

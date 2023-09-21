@@ -27,6 +27,7 @@ export const searchImages = createAsyncThunk('app/searchImages', async (searchTe
 	const { data } = await axios.get('https://api.unsplash.com/search/photos/random', {
 		params: {
 			count: 30,
+			query: searchTerm,
 		},
 		headers: {
 			Authorization: `Client-ID ${accessKey}`,
