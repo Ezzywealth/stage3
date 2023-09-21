@@ -18,7 +18,7 @@ function Auth({ children }) {
 		router.push('/');
 		return null;
 	}
-	return <main>{children}</main>;
+	return <main className=''>{children}</main>;
 }
 
 export default Auth;

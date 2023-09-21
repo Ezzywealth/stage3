@@ -5,7 +5,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import LoaderWrapper from './LoaderWrapper';
 import ImageCard from './Image';
 import { DndContext, closestCenter, KeyboardSensor, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
-import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import { arrayMove, SortableContext, verticalListSortingStrategy, reactSwappingStrategy } from '@dnd-kit/sortable';
 
 const Images = () => {
 	const { images, imageLoading, imageError } = useSelector((state) => state.app);
@@ -28,6 +28,8 @@ const Images = () => {
 		setItems((items) => arrayMove(items, oldIndex, newIndex));
 	};
 
+	console.log(images);
+
 	return (
 		<main className='w-full min-h-screen'>
 			{imageLoading ? (
@@ -44,7 +46,7 @@ const Images = () => {
 						</section>
 					) : (
 						<DndContext autoScroll={{ acceleration: 1 }} TouchSensor collisionDetection={closestCenter} onDragEnd={handleDragEnd} sensors={sensors}>
-							<SortableContext items={images} strategy={verticalListSortingStrategy}>
+							<SortableContext items={images} strategy={reactSwappingStrategy}>
 								<section className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 w-full justify-center px-4 md:px-12 lg:px-20'>
 									{items?.map((image, index) => (
 										<ImageCard key={image.id} image={image} />

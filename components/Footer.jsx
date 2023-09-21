@@ -4,7 +4,7 @@ import { BiLogoFacebookCircle, BiLogoTwitter, BiLogoInstagramAlt, BiLogoYoutube 
 
 const Footer = () => {
 	return (
-		<footer className='bg-white text-white py-4'>
+		<footer className='bg-white text-white py-4 mt-12'>
 			<div className='container mx-auto flex gap-4 flex-col justify-center '>
 				<div className='space-x-4 flex w-full justify-center gap-4 '>
 					<a href='#' className='text-gray-300 hover:text-white'>

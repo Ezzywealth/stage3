@@ -10,16 +10,15 @@ const initialState = {
 };
 
 export const fetchImages = createAsyncThunk('app/fetchImages', async (searchTerm) => {
-	const { data } = await axios.get('https://api.unsplash.com/photos', {
+	const { data } = await axios.get('https://api.unsplash.com/search/photos', {
 		params: {
 			query: searchTerm,
-			per_page: 25,
+			per_page: 30,
 		},
 		headers: {
 			Authorization: `Client-ID ${accessKey}`,
 		},
 	});
-	console.log(data);
 	return data;
 });
 
@@ -27,7 +26,6 @@ export const searchImages = createAsyncThunk('app/searchImages', async (searchTe
 	const { data } = await axios.get('https://api.unsplash.com/search/photos/random', {
 		params: {
 			count: 30,
-			query: searchTerm,
 		},
 		headers: {
 			Authorization: `Client-ID ${accessKey}`,
@@ -50,7 +48,7 @@ const appSlice = createSlice({
 			state.imageLoading = true;
 		});
 		builders.addCase(fetchImages.fulfilled, (state, action) => {
-			state.images = action.payload;
+			state.images = action.payload.results;
 			state.imageLoading = false;
 		});
 		builders.addCase(fetchImages.rejected, (state, action) => {
