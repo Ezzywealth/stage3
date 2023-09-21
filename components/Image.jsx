@@ -17,7 +17,7 @@ const ImageCard = ({ image }) => {
 			</div>
 			<ul className='flex w-full bg-white gap-1 justify-start flex-nowrap'>
 				{image?.tags?.slice(0, 2).map((tag) => (
-					<li key={tag?.title.slice(0, 7)} className='shadow-md text-[#ddd] text-[12px] rounded-md border border-gray-200 md:text-[14px] lg:text-base p-1 py-0 mt-1'>
+					<li key={tag?.title.slice(0, 7)} className='shadow-md text-gray-600 text-[12px] rounded-md border border-gray-200 md:text-[14px] lg:text-base p-1 py-0 mt-1'>
 						{tag?.title.slice(0, 10)}
 					</li>
 				))}
