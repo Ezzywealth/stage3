@@ -17,8 +17,6 @@ function Auth({ children }) {
 	if (status === 'unauthenticated') {
 		router.push('/');
 		return null;
-	} else {
-		router.replace('/gallery');
 	}
 	return <main>{children}</main>;
 }
