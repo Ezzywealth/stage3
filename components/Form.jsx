@@ -14,7 +14,7 @@ const Form = () => {
 					onChange={(e) => {
 						dispatch(filterImages(e.target.value));
 					}}
-					placeholder='Search for any image ? '
+					placeholder='Filter image by tag ? '
 					className='placeholder:text-sm px-4 py-2 w-full md:w-[500px] rounded-lg border focus:outline-none focus:ring focus:border-blue-300  bg-none'
 				/>
 				<button type='submit' className='absolute inset-y-0 right-0   items-center pr-3'>
