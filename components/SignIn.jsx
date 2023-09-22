@@ -53,9 +53,9 @@ const SignIn = () => {
 					</span>
 				</div>
 				<h1 className='text-3xl font-bold text-center mb-10 text-gray-600 dark:text-white'>Ziks Gallery</h1>
-				<form className='space-y-6  w-full rounded-md  z-[10000]' onSubmit={handleSubmit(handleSignIn)}>
+				<form className='space-y-6 mb-10  w-full rounded-md  z-[10000]' onSubmit={handleSubmit(handleSignIn)}>
 					<div>
-						<label className='block mb-2 text-base font-semibold text-gray-600 dark:text-white'>E-mail</label>
+						<label className='block mb-2 text-base font-semibold text-gray-800 dark:text-white'>E-mail</label>
 						<input
 							defaultValue={email}
 							type='email'
@@ -67,7 +67,7 @@ const SignIn = () => {
 									message: 'Please enter a valid email address',
 								},
 							})}
-							className={`bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg focus:border-my-primary focus:border-2 focus:outline-none focus:ring-0 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+							className={` border border-gray-300  text-gray-900 sm:text-sm rounded-lg focus:outline-none focus:ring-0 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
 							placeholder='E-mail'
 						/>
 						{errors?.email && <span className='text-red-500 text-sm'>{errors?.email?.message}</span>}
@@ -87,7 +87,7 @@ const SignIn = () => {
 							})}
 							id='password'
 							placeholder='••••••••'
-							className={`bg-gray-50 border  text-gray-900 sm:text-sm rounded-lg focus:border-my-primary focus:border-2 focus:outline-none focus:ring-0 block w-full p-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+							className={` border border-gray-300  text-gray-900 sm:text-sm rounded-lg focus:border-my-primary focus:border-2 focus:outline-none focus:ring-0 block w-full p-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
 						/>
 						{errors?.password && <span className='text-red-500 text-sm'>{errors?.password?.message}</span>}
 					</div>
