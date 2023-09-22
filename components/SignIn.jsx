@@ -46,13 +46,13 @@ const SignIn = () => {
 
 	return (
 		<section className='bg-black/50 w-full h-screen px-4 flex items-center justify-center'>
-			<section className=' bg-white flex flex-col text-[#ddd] items-center w-full md:w-[600px] px-3 md:px-6 py-6 md:py-12'>
+			<section className=' bg-white flex flex-col text-gray-600 items-center w-full md:w-[600px] px-3 md:px-6 py-6 md:py-12'>
 				<div className='flex justify-end w-full'>
 					<span onClick={closeModal} className='cursor-pointer text-red-500 font-bold'>
 						X
 					</span>
 				</div>
-				<h1 className='text-3xl font-bold text-center mb-10 '>Ziks Gallery</h1>
+				<h1 className='text-3xl font-bold text-center mb-10 text-gray-600 dark:text-white'>Ziks Gallery</h1>
 				<form className='space-y-6  w-full rounded-md  z-[10000]' onSubmit={handleSubmit(handleSignIn)}>
 					<div>
 						<label className='block mb-2 text-base font-semibold text-gray-600 dark:text-white'>E-mail</label>

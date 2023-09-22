@@ -15,7 +15,7 @@ const Gallery = () => {
 	const { data: session, status } = useSession();
 	const router = useRouter();
 
-	const query = 'animals';
+	const query = 'guns';
 	useEffect(() => {
 		if (status === 'authenticated') {
 			dispatch(fetchImages(query));

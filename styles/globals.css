@@ -6,6 +6,7 @@ html,
 body {
 	padding: 0;
 	width: 100%;
+	background-color: rgb(252, 248, 244);
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -55,6 +56,14 @@ span {
 }
 
 .dragged-item {
-  opacity: 0.7;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+	opacity: 0.7;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #1b416d; /* Change the color to your preference */
 }
